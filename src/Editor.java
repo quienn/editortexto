@@ -23,6 +23,8 @@ import javax.print.attribute.standard.MediaSizeName;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -39,6 +41,8 @@ public class Editor extends javax.swing.JFrame {
 
     FontFrame fontFrame;
 
+    private javax.swing.JTabbedPane tabbedPane; //este es el contenedor de espestañas compañeritosssssssssssssssssss
+
     /**
      * Creates new form Editor
      */
@@ -46,18 +50,27 @@ public class Editor extends javax.swing.JFrame {
         initComponents();
         setTitle(frameTitle);
         fontFrame = new FontFrame(textArea);
+        tabbedPane = new javax.swing.JTabbedPane();
+        editorContainer.setViewportView(tabbedPane);
+    }
+
+    private void addNewTab() {
+        JScrollPane newScrollPane = new JScrollPane();
+        JTextArea newTextArea = new JTextArea();
+        newScrollPane.setViewportView(newTextArea);
+        tabbedPane.addTab("Nueva pestaña", newScrollPane);
     }
 
     public void paperPrint() {
         try {
             DocFlavor format = DocFlavor.INPUT_STREAM.AUTOSENSE;
-            Doc doc = 
-                    new SimpleDoc(new ByteArrayInputStream(textArea.getText().getBytes()), format, null);
+            Doc doc
+                    = new SimpleDoc(new ByteArrayInputStream(textArea.getText().getBytes()), format, null);
             PrintRequestAttributeSet aset = new HashPrintRequestAttributeSet();
 
             aset.add(MediaSizeName.NA_LETTER);
             aset.add(new Copies(1));
-            
+
             PrintService service = PrintServiceLookup.lookupDefaultPrintService();
             System.out.println(service);
             DocPrintJob job = service.createPrintJob();
@@ -105,7 +118,7 @@ public class Editor extends javax.swing.JFrame {
         editorContainer.setViewportView(textArea);
 
         menuFile.setMnemonic('A');
-        menuFile.setText("Archivo");
+        menuFile.setText("File");
 
         menuFileNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuFileNew.setText("Nuevo");
@@ -118,6 +131,11 @@ public class Editor extends javax.swing.JFrame {
 
         menuFileWindow.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuFileWindow.setText("Ventana nueva");
+        menuFileWindow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileWindowActionPerformed(evt);
+            }
+        });
         menuFile.add(menuFileWindow);
 
         menuFileOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -173,7 +191,7 @@ public class Editor extends javax.swing.JFrame {
         menu.add(menuFile);
 
         menuEdit.setMnemonic('E');
-        menuEdit.setText("Edición");
+        menuEdit.setText("Edit");
         menu.add(menuEdit);
 
         menuFormat.setMnemonic('F');
@@ -190,7 +208,7 @@ public class Editor extends javax.swing.JFrame {
         menu.add(menuFormat);
 
         menuView.setMnemonic('V');
-        menuView.setText("Ver");
+        menuView.setText("View");
         menu.add(menuView);
 
         menuHelp.setMnemonic('Y');
@@ -214,7 +232,7 @@ public class Editor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuFileNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileNewActionPerformed
-        // TODO add your handling code here:
+        addNewTab();
     }//GEN-LAST:event_menuFileNewActionPerformed
 
     private void menuFileSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveActionPerformed
@@ -289,6 +307,11 @@ public class Editor extends javax.swing.JFrame {
     private void menuFilePrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFilePrintActionPerformed
         paperPrint();
     }//GEN-LAST:event_menuFilePrintActionPerformed
+
+    private void menuFileWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileWindowActionPerformed
+        Editor newEditor = new Editor();
+        newEditor.setVisible(true);
+    }//GEN-LAST:event_menuFileWindowActionPerformed
 
     /**
      * @param args the command line arguments
