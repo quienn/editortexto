@@ -111,16 +111,20 @@ public class Editor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        editorContainer.setBackground(new java.awt.Color(255, 204, 255));
         editorContainer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         textArea.setColumns(20);
         textArea.setRows(5);
         editorContainer.setViewportView(textArea);
 
+        menuFile.setBackground(new java.awt.Color(255, 204, 255));
         menuFile.setMnemonic('A');
         menuFile.setText("File");
 
         menuFileNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFileNew.setBackground(new java.awt.Color(255, 204, 255));
+        menuFileNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
         menuFileNew.setText("Nuevo");
         menuFileNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +134,7 @@ public class Editor extends javax.swing.JFrame {
         menuFile.add(menuFileNew);
 
         menuFileWindow.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFileWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/share_12964668.png"))); // NOI18N
         menuFileWindow.setText("Ventana nueva");
         menuFileWindow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +144,7 @@ public class Editor extends javax.swing.JFrame {
         menuFile.add(menuFileWindow);
 
         menuFileOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFileOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/correo-electronico.png"))); // NOI18N
         menuFileOpen.setText("Abrir...");
         menuFileOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +154,7 @@ public class Editor extends javax.swing.JFrame {
         menuFile.add(menuFileOpen);
 
         menuFileSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFileSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-flexible.png"))); // NOI18N
         menuFileSave.setText("Guardar");
         menuFileSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,6 +164,7 @@ public class Editor extends javax.swing.JFrame {
         menuFile.add(menuFileSave);
 
         menuFileSaveAs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.SHIFT_DOWN_MASK | java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFileSaveAs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar-carpeta.png"))); // NOI18N
         menuFileSaveAs.setText("Guardar como...");
         menuFileSaveAs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,10 +174,12 @@ public class Editor extends javax.swing.JFrame {
         menuFile.add(menuFileSaveAs);
         menuFile.add(menuFileSeparator1);
 
+        menuFileSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/configuraciones.png"))); // NOI18N
         menuFileSettings.setText("Configurar página");
         menuFile.add(menuFileSettings);
 
         menuFilePrint.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFilePrint.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/impresora.png"))); // NOI18N
         menuFilePrint.setText("Imprimir");
         menuFilePrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +190,7 @@ public class Editor extends javax.swing.JFrame {
         menuFile.add(menuFileSeparator2);
 
         menuFileExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        menuFileExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salida.png"))); // NOI18N
         menuFileExit.setText("Salir");
         menuFileExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +201,7 @@ public class Editor extends javax.swing.JFrame {
 
         menu.add(menuFile);
 
+        menuEdit.setBackground(new java.awt.Color(255, 204, 255));
         menuEdit.setMnemonic('E');
         menuEdit.setText("Edit");
         menu.add(menuEdit);
@@ -197,6 +209,7 @@ public class Editor extends javax.swing.JFrame {
         menuFormat.setMnemonic('F');
         menuFormat.setText("Formato");
 
+        menuFont.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fuente.png"))); // NOI18N
         menuFont.setText("Fuente...");
         menuFont.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +245,7 @@ public class Editor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuFileNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileNewActionPerformed
-        addNewTab();
+        addNewTab();       
     }//GEN-LAST:event_menuFileNewActionPerformed
 
     private void menuFileSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileSaveActionPerformed

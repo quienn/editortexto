@@ -62,10 +62,10 @@ public class FontFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Selección de Fuente");
         setAlwaysOnTop(true);
-        setPreferredSize(new java.awt.Dimension(600, 400));
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
+        fontList.setBackground(new java.awt.Color(255, 204, 255));
         fontList.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Fuente")));
         fontList.setModel(fontModel);
         fontList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -78,6 +78,7 @@ public class FontFrame extends javax.swing.JFrame {
 
         getContentPane().add(fontListScrollPane, java.awt.BorderLayout.LINE_START);
 
+        fontSizeList.setBackground(new java.awt.Color(255, 204, 204));
         fontSizeList.setBorder(javax.swing.BorderFactory.createTitledBorder("Tamaño"));
         fontSizeList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "6", "8", "10", "12", "14", "18", "24", "38" };
@@ -94,6 +95,7 @@ public class FontFrame extends javax.swing.JFrame {
 
         getContentPane().add(fontStyleScrollPane, java.awt.BorderLayout.LINE_END);
 
+        fontStyleList.setBackground(new java.awt.Color(255, 204, 255));
         fontStyleList.setBorder(javax.swing.BorderFactory.createTitledBorder("Estilo de Fuente"));
         fontStyleList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Regular", "Negrita", "Itálica", "Negrita Itálica" };
@@ -108,6 +110,7 @@ public class FontFrame extends javax.swing.JFrame {
         confirmationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Muestra:"));
 
         confirmationSampleArea.setEditable(false);
+        confirmationSampleArea.setBackground(new java.awt.Color(255, 204, 204));
         confirmationSampleArea.setColumns(20);
         confirmationSampleArea.setRows(5);
         confirmationSampleArea.setText("¡Hola, Mundo!");
@@ -115,6 +118,7 @@ public class FontFrame extends javax.swing.JFrame {
 
         confirmationPanel.add(confirmationSampleScrollPane);
 
+        confirmationSelectButton.setBackground(new java.awt.Color(204, 204, 255));
         confirmationSelectButton.setText("Aplicar");
         confirmationSelectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +127,7 @@ public class FontFrame extends javax.swing.JFrame {
         });
         confirmationPanel.add(confirmationSelectButton);
 
+        confirmacionCancelButton.setBackground(new java.awt.Color(204, 204, 255));
         confirmacionCancelButton.setText("Cancelar");
         confirmacionCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
